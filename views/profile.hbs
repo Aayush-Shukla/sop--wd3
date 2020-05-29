@@ -1,0 +1,35 @@
+{{> header }}
+
+<div class="container">
+
+    <p>
+        profile,
+        hello {{name}}
+
+    </p>
+
+<form method="POST" action="/profile">
+    <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" rows="5" id="comment" name="blog"></textarea>
+    </div>
+    <input type="submit">
+</form>
+
+
+
+
+
+
+        {{#each userblogs}}
+            <div class="alert alert-danger">
+                {{this.content}}
+            </div>
+        {{/each}}
+
+
+</div>
+
+
+
+{{> footer-end }}
