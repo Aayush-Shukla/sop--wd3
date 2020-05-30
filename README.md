@@ -1,6 +1,6 @@
 # Social Website 
 
-A simple blog site built using Node js and Express js for the backend.
+A simple blog site built using Node js and Express js for the backend and MySQL Database.
 
 ---
 ## Requirements
