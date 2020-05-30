@@ -1,34 +1,118 @@
 {{> header }}
 
-<div class="container">
-
-    <p>
-        profile,
-        hello {{name}}
-
-    </p>
-
-<form method="POST" action="/profile">
-    <div class="form-group">
-        <label for="comment">Comment:</label>
-        <textarea class="form-control" rows="5" id="comment" name="blog"></textarea>
-    </div>
-    <input type="submit">
-</form>
 
 
 
 
 
 
-        {{#each userblogs}}
-            <div class="alert alert-danger">
-                {{this.content}}
+
+
+
+<!--<form method="POST" action="/profile">-->
+<!--    <div class="form-group">-->
+<!--        <label for="comment">Comment:</label>-->
+<!--        <textarea class="form-control" rows="5" id="comment" name="blog"></textarea>-->
+<!--    </div>-->
+<!--    <input type="submit">-->
+<!--</form>-->
+
+<br>
+<br>
+
+
+            <div class="row ">
+                <div class="col s12 m12 ">
+                    <div class="card-panel teal lighten-4">
+                    <div class="row">
+                        <div class="col s4 center">
+                            <div class="row">
+                                <h5>POSTS</h5>
+                            </div>
+                            <div class="row"><h4>{{data.info.postno}}</h4></div>
+                        </div>
+                        <div class="col s4 center">
+                            <div class="row">
+                            <h5>FOLLOWERS</h5>
+                        </div>
+                            <div class="row"><h4>{{data.info.followers}}</h4></div>
+
+                        </div>
+                        <div class="col s4 center">
+                            <div class="row">
+                            <h5>FOLLOWING</h5>
+                        </div>
+                            <div class="row"><h4>{{data.info.followings}}</h4></div>
+
+                        </div>
+                    </div>
+                    </span>
+                    </div>
+                </div>
             </div>
-        {{/each}}
 
 
-</div>
+
+
+
+
+{{#each data.userblogs}}
+
+
+
+
+
+
+    <div class="row ">
+        <div class="col s12 m10 offset-m1  ">
+            <div class="card " style="min-height: 500px;">
+                <div class="card-content ">
+
+                    <table>
+                        <tr class="card-title teal-text medium" >
+                            <td>
+                                <i class="material-icons medium">account_circle</i>
+                            </td>
+                            <td style="padding-bottom: 35px">
+
+                                <strong>{{../data.info.name}}</strong>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+                    <br>
+
+                    <div style="min-height: 300px;">
+
+
+                        {{this.content}}
+
+
+                    </div>
+
+                </div>
+                <div class="card-action">
+                    <div class="left-align red-text">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

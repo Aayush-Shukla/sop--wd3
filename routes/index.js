@@ -10,10 +10,30 @@ const saltRounds=10;
 /* GET home page. */
 
 
-router.get('/', function(req, res, next) {
+router.get('/',authenticationMiddleware (), function(req, res, next) {
     console.log(req.user,req.isAuthenticated())
+    profileid=req.session.passport.user.user_id
 
-    res.render('home');
+    const db=require('../db.js')
+    db.query("SELECT content,name FROM users INNER JOIN post ON users.id=post.author_id INNER JOIN followers ON (followers.user_id = users.id OR followers.follower_id=users.id) WHERE followers.user_id=(?) OR followers.follower_id=(?) ORDER BY created_at DESC", [profileid,profileid], function (error, results, fields) {
+        if (error) {
+            console.log(error, 'dbquery');
+        }
+
+
+        db.query("SELECT name FROM users WHERE id=(?)", [profileid], function (error, namese, fields) {
+            if (error) {
+                console.log(error, 'dbquery');
+            }
+
+
+
+            res.render('home', {data:{feed:results, name:namese[0].name}});
+        })
+
+    })
+
+
 });
 
 
@@ -21,7 +41,7 @@ router.get('/', function(req, res, next) {
 
 
 
-router.get('/register',checknotauthenticated(), function(req, res, next) {
+router.get('/register',checkNotAuthenticated(), function(req, res, next) {
   res.render('register', { title: 'Registration' });
 });
 
@@ -33,7 +53,14 @@ router.get('/profile',authenticationMiddleware (), function(req, res, next) {
         if (error) {
             console.log(error, 'dbquery');
         }
-        res.render('profile', {userblogs: results});
+        db.query("SELECT (Select count(*) from post where author_id=(?))as postno, (SELECT count(*) from followings where user_id=(?))as followers,(SELECT count(*) from followers where user_id=(?))as followings,(select name from users where id=(?))as name", [authorid,authorid,authorid,authorid], function (error, profinfo, fields) {
+            if (error) {
+                console.log(error, 'dbquery');
+            }
+                console.log(profinfo)
+
+        res.render('profile', {data:{userblogs: results,info:profinfo[0]}})
+        })
     })
 
 
@@ -70,7 +97,7 @@ router.post('/profile',authenticationMiddleware (), function(req, res, next) {
 
 });
 
-router.get('/login',checknotauthenticated, function(req, res, next) {
+router.get('/login',checkNotAuthenticated(), function(req, res, next) {
   res.render('login', { title: 'login' });
 });
 router.get('/user/:name', function(req, res, next) {
@@ -125,13 +152,14 @@ router.get('/follow/:id',authenticationMiddleware (), function(req, res, next) {
 router.post('/login', passport.authenticate(
     'local',{
     successRedirect:'/profile',
-    failureRedirect:'/login'
-}));
+    failureRedirect:'/login',
+    failureFlash : true
+    }));
 
 router.get('/logout', function(req, res, next) {
     req.logout();
     req.session.destroy();
-    res.redirect('/')
+    res.redirect('/login')
 });
 
 
@@ -144,42 +172,59 @@ router.get('/logout', function(req, res, next) {
 
 
 router.post('/register', check('username').not().isEmpty().withMessage('name cant be empty'),function(req, res, next) {
-  
+
+    exist=[]
+    username=req.body.username
+    email=req.body.email
+    pword=req.body.password
+    const db=require('../db.js')
+    db.query("SELECT * FROM users WHERE name=(?) OR email =(?)",[username,email],function (error,existresult,fields){
 
 
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      // return res.status(422).json({ errors: errors.array() });
-      res.render('register', { title: 'Registration error' ,errors :errors.array()});
-    }
-    else{
-            username=req.body.username
-            email=req.body.email
-            pword=req.body.password
-            const db=require('../db.js')
+
+        if (existresult.length!=0) {
+            // return res.status(422).json({ errors: errors.array() });
+            res.render('register', { title: 'Registration error' ,errors :'Username not available OR Email exists'});
+        }
+        else{
+
             bcrypt.hash(pword,saltRounds,function(err,hash) {
                 db.query("INSERT INTO users(name,email,pass)VALUES(?,?,?)", [username, email, hash], function (error, results, fields) {
-                  if (error) {
-                    console.log(error,'dbquery');
-                  }
+                    if (error) {
+                        console.log(error,'dbquery');
+                    }
 
-                  db.query('SELECT LAST_INSERT_ID() as user_id',function(error,results,fields){
-                      if(error) {
-                          console.log(error)
-                      }
-                      console.log(results[0])
-                      const user_id=results[0]
-                      req.login(user_id,function(err){
-                          res.redirect('/');
+                    db.query('SELECT LAST_INSERT_ID() as user_id',function(error,results,fields){
+                        if(error) {
+                            console.log(error)
+                        }
+                        console.log(results[0])
+                        const user_id=results[0]
+                        req.login(user_id,function(err){
+                            res.redirect('/');
 
-                      })
-                  })
+                        })
+                    })
 
 
 
                 })
             })
-    }
+        }
+
+
+
+
+
+
+
+
+
+    })
+
+
+
+
 
 
 });
@@ -200,7 +245,7 @@ function authenticationMiddleware () {
         res.redirect('/login')
     }
 }
- function checknotauthenticated () {
+ function checkNotAuthenticated () {
     return (req, res, next) => {
         console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
 

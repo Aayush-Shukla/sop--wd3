@@ -1,14 +1,90 @@
 {{> header }}
 
-<div class="container">
 
-    <p>
 
-        home
 
-    </p>
 
+
+
+<div class="card-panel black-text row s12" style="  padding-bottom: 150px;box-shadow: 0px 0px 0px 0px rgba(0,0,0,0); background-image: url(https://img.freepik.com/free-vector/seamless-pattern_1159-5086.jpg?size=626&ext=jpg);">
+    <div class="container">
+        <h1>Hello, <text class="red-text">{{data.name}}</text></h1>
+
+    </div>
 </div>
+
+
+
+
+
+
+<!--<form method="POST" action="/profile">-->
+<!--    <div class="form-group">-->
+<!--        <label for="comment">Comment:</label>-->
+<!--        <textarea class="form-control" rows="5" id="comment" name="blog"></textarea>-->
+<!--    </div>-->
+<!--    <input type="submit">-->
+<!--</form>-->
+
+
+
+
+
+
+
+
+
+
+
+
+{{#each data.feed}}
+
+
+
+
+
+
+<div class="row ">
+    <div class="col s12 m10 offset-m1  ">
+        <div class="card " style="min-height: 500px;">
+            <div class="card-content ">
+
+                <table>
+                    <tr class="card-title teal-text medium" >
+                        <td>
+                            <i class="material-icons medium">account_circle</i>
+                        </td>
+                        <td style="padding-bottom: 35px">
+
+                            {{this.name}}
+                        </td>
+                    </tr>
+                </table>
+
+
+
+                <br>
+
+                <div style="min-height: 300px;">
+
+
+                    {{this.content}}
+
+
+                </div>
+
+            </div>
+            <div class="card-action">
+                <div class="left-align red-text">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+
 
 
 

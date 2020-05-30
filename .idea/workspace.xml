@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66ba6a9-292d-494a-9cda-7fed25422d16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/login.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/footer-end.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/footer-end.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/register.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/register.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +27,7 @@
     </layout>
   </component>
   <component name="ProjectId" id="1cZFQocxVJIfMmpkRV9vdjGNU8X" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -49,7 +56,8 @@
       <option name="presentableId" value="Default" />
       <updated>1590728194493</updated>
       <workItem from="1590728198094" duration="11995000" />
-      <workItem from="1590752445716" duration="12365000" />
+      <workItem from="1590752445716" duration="12856000" />
+      <workItem from="1590817453747" duration="21169000" />
     </task>
     <servers />
   </component>

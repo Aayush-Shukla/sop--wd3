@@ -1,35 +1,74 @@
 {{> header }}
 
-<div class="container">
 
 
-<h1>{{title}}</h1>
-    {{#if errors}}
-        {{#each errors}}
-            <div class="alert alert-danger">
-                {{this.msg}}
+
+
+<br>
+<br>
+<br>
+
+{{#if errors}}
+
+        <div class="row">
+
+            <div class="card-panel red lighten-2 s12 m6 offset-m3 col">
+        <span class="white-text">{{errors}}
+        </span>
             </div>
-        {{/each}}
-    {{/if}}
+
+        </div>
 
 
-<form method="POST" action='/register'>
-  <div class="form-group">
-      <label for="username">Username</label>
-    <input type="name" name="username" class="form-control" id="username"lplaceholder="Enter username">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
+{{/if}}
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+
+
+
+
+
+
+<div class="row ">
+    <div class="col s12 m6 offset-m3  ">
+        <div class="card grey lighten-3">
+            <div class="card-content red-text">
+                <span class="card-title"><h5>REGISTER</h5></span>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="">
+                    <form method="POST" action='/register'>
+                        <div class="input-field s12 ">
+                            <label for="username" class="black-text">Username</label>
+                            <input type="text" name="username" class="validate" id="username" placeholder="Enter username" required>
+
+                        </div>
+                        <div class="input-field s12 ">
+                            <label for="email" class="black-text">Email</label>
+                            <input type="email" name="email" class="validate" id="email" placeholder="Enter Email" required>
+
+                        </div>
+
+                        <div class="input-field  ">
+                            <label for="Password" class="black-text">Password</label>
+                            <input type="password" name="password" class="validate" id="Password" placeholder="Password" required>
+                        </div>
+
+                        <button type="submit" class="btn teal lighten-1">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="card-action">
+                <div class="left-align red-text">
+                    <a href="/login"  > Already a user?</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 {{> footer-end }}
