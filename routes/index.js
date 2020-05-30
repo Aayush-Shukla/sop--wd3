@@ -2,12 +2,11 @@ var express = require('express');
 var router = express.Router();
 var passport=require('passport');
 
-// expressValidator=require('express-validator');
 const { check, validationResult } = require('express-validator');
 var bcrypt=require('bcrypt');
 const saltRounds=10;
 
-/* GET home page. */
+
 
 
 router.get('/',authenticationMiddleware (), function(req, res, next) {
