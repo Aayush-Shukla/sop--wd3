@@ -81,4 +81,14 @@ Run SQL query
 ## Running the project
 
     $ node /bin/www
+    
+## Visit localhost:3000 on your browser
 
+
+
+- [x] Account sign-up and login page
+- [x] Article page for creating articles
+- [x] Feed Page
+- [x] Profile page with user's detail
+- [x] Search by username and view/follow other users
+- [ ] Advance Task
