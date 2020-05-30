@@ -95,6 +95,6 @@ console.log("All Table Created Successfuly")
 
 
 
-process.exit()
+
 
 module.exports = connection;
