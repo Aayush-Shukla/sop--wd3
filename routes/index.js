@@ -112,7 +112,7 @@ router.get('/login',checkNotAuthenticated(), function(req, res, next) {
 
 
 
-router.get('/user/:name', function(req, res, next) {
+router.get('/user/:name',authenticationMiddleware (), function(req, res, next) {
 
 
     profilevisit=req.params.name
