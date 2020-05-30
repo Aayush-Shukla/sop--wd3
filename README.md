@@ -80,7 +80,7 @@ Run SQL query
 
 ## Running the project
 
-    $ node /bin/www
+    $ node bin/www
     
 ### Visit localhost:3000 on your browser
 
