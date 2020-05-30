@@ -82,10 +82,10 @@ Run SQL query
 
     $ node /bin/www
     
-## Visit localhost:3000 on your browser
+### Visit localhost:3000 on your browser
 
 
-
+## TODO
 - [x] Account sign-up and login page
 - [x] Article page for creating articles
 - [x] Feed Page
