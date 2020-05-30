@@ -63,7 +63,7 @@ DB_NAME=dbname
 - ### To autogenerate tables
 This is only needed for the first time
 
-```$ node create-tables.js```
+```$ node create-tables.js``` -> ```Ctrl + C``` after 5 seconds
 
 
 
@@ -80,7 +80,7 @@ Run SQL query
 
 ## Running the project
 
-    $ node bin/www
+    $ node start
     
 ### Visit localhost:3000 on your browser
 
