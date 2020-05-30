@@ -70,7 +70,7 @@ This is only needed for the first time
 ### On `ER_NOT_SUPPORTED_AUTH_MODE` error
 Run SQL query 
 
-```$ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your-password' ```
+```mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your-password' ```
 
 
 
