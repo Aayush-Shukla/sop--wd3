@@ -51,7 +51,7 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
 ## Configure app
 
-Rename `.env.default` to `.env` then edit it with your DB settings like:
+- Rename `.env.default` to `.env` then edit it with your DB settings like:
 ```NODE_ENV=DEVELOPMENT
 
 DB_HOST=localhost
@@ -60,14 +60,14 @@ DB_PASSWORD=dbpass
 DB_NAME=dbname
 ```
 
-### To autogenerate tables
+- ### To autogenerate tables
 This is only needed for the first time
 
 ```$ node create-tables.js```
 
 
 
-### On `ER_NOT_SUPPORTED_AUTH_MODE` error
+- ### On `ER_NOT_SUPPORTED_AUTH_MODE` error
 Run SQL query 
 
 ```mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your-password' ```
