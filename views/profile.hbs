@@ -3,7 +3,7 @@
 
 
 
-
+<div class="container "  style="height: 100%;">
 
 
 
@@ -18,12 +18,12 @@
 <!--</form>-->
 
 <br>
-<br>
+
 
 
             <div class="row ">
                 <div class="col s12 m12 ">
-                    <div class="card-panel teal lighten-4">
+                    <div class="card-panel blue-grey lighten-3">
                     <div class="row">
                         <div class="col s4 center">
                             <div class="row">
@@ -49,7 +49,41 @@
                     </span>
                     </div>
                 </div>
+                {{#if data.id}}
+                    {{#if data.alreadyfollow}}
+                            <div class="right">
+                                <a href="/unfollow/{{data.id}}"class="waves-effect red waves-light btn-large">Unfollow</a>
+                            </div>
+                        {{else}}
+                    <div class="right">
+                    <a href="/follow/{{data.id}}"class="waves-effect red waves-light btn-large">Follow</a>
+                    </div>
+                    {{/if}}
+                {{/if}}
             </div>
+
+
+
+    <h3 class="center grey-text">POSTS</h3>
+
+<div class="row">
+{{#unless data.id}}
+
+<div class="col s8 m6 offset-s2 offset-m3 grey-text">
+    <ul class="collection with-header">
+        <li class="collection-header center"><h4>Your info</h4></li>
+        <li class="collection-item">Id No : {{data.userinfo.id}}</li>
+
+        <li class="collection-item">Name : {{data.userinfo.name}}</li>
+        <li class="collection-item">Email : {{data.userinfo.email}}</li>
+    </ul>
+
+</div>
+
+
+{{/unless}}
+</div>
+
 
 
 
@@ -87,14 +121,17 @@
                     <div style="min-height: 300px;">
 
 
-                        {{this.content}}
+                        {{{this.content}}}
 
 
                     </div>
 
                 </div>
                 <div class="card-action">
-                    <div class="left-align red-text">
+                    <div class="right-align ">
+                        <small>
+                        {{this.created_at}}
+                        </small>
 
                     </div>
                 </div>
@@ -112,7 +149,7 @@
 
 
 
-
+</div>
 
 
 

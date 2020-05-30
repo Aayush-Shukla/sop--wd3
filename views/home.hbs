@@ -13,24 +13,14 @@
     </div>
 </div>
 
-
-
-
-
-
-<!--<form method="POST" action="/profile">-->
-<!--    <div class="form-group">-->
-<!--        <label for="comment">Comment:</label>-->
-<!--        <textarea class="form-control" rows="5" id="comment" name="blog"></textarea>-->
-<!--    </div>-->
-<!--    <input type="submit">-->
-<!--</form>-->
+<div class="container "  style="height: 100%;">
 
 
 
 
 
 
+<h3 class="center grey-text">FEED</h3>
 
 
 
@@ -68,14 +58,17 @@
                 <div style="min-height: 300px;">
 
 
-                    {{this.content}}
+                    {{{this.content}}}
 
 
                 </div>
 
             </div>
             <div class="card-action">
-                <div class="left-align red-text">
+                <div class="right-align ">
+                    <small>
+                        {{this.created_at}}
+                    </small>
 
                 </div>
             </div>
@@ -84,7 +77,7 @@
 </div>
 {{/each}}
 
-
+</div>
 
 
 

@@ -20,21 +20,31 @@
 
         <nav class="teal lighten-1">
             <div class="container ">
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo">HOME</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-                    </form>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/logout">Logout</a></li>
+                        </form>
+                        {{#if isAuthenticated}}
+                        <li><a href="/search"><i class="material-icons">search</i> </a></li>
+                        <li><a href="/profile">Profile</a></li>
 
-                </ul>
-            </div>
+                        <li><a href="/logout">Logout</a></li>
+
+
+                        {{else}}
+
+
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Register</a></li>
+                        {{/if}}
+
+                    </ul>
+                </div>
             </div>
         </nav>
 
-        <div class="container "  style="height: 100%;">
+
 
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

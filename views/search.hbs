@@ -1,0 +1,60 @@
+{{> header }}
+
+
+
+
+
+
+<div class="container">
+
+    <br>
+    <br>
+    <br>
+
+
+    <div class="row">
+        <form class="col s12" method="POST" action="/search">
+            <div class="row">
+                <div class="input-field col s12 m6 offset-m3 ">
+                    <i class="material-icons large prefix ">search</i>
+                    <input id="icon_prefix2" name='search' class="materialize-textarea" autocomplete="off"></input>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+{{#each search_res}}
+
+    <div class="col s12 m6 teal-text">
+        <a href=user/{{this.name}}>
+        <div class="card horizontal">
+            <div class="card-image" style="padding-top:8px;">
+                <i class="material-icons large teal-text">account_circle</i>
+            </div>
+            <div class="card-stacked">
+                <div class="card-content teal-text">
+                    <h5>  &nbsp&nbsp&nbsp  {{this.name}}</h5>
+                </div>
+
+            </div>
+        </div>
+        </a>
+    </div>
+{{/each}}
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+{{> footer-end }}
