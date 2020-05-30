@@ -80,7 +80,7 @@ Run SQL query
 
 ## Running the project
 
-    $ node start
+    $ npm start
     
 ### Visit localhost:3000 on your browser
 
